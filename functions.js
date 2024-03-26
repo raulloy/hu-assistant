@@ -59,10 +59,7 @@ export const createHubSpotContact = async (
       const apiResponse = await hubspotClient.crm.contacts.basicApi.create({
         properties,
       });
-      console.log(
-        'Contact created successfully.',
-        JSON.stringify(apiResponse, null, 2)
-      );
+      console.log('Contact created successfully.');
       return apiResponse;
     } else {
       console.log('Contact is already created');
@@ -70,7 +67,7 @@ export const createHubSpotContact = async (
   } catch (error) {
     console.error(
       `Failed to create contact: ${error.message}`,
-      error.response ? JSON.stringify(error.response, null, 2) : ''
+      error.response ? JSON.stringify(error.response.status, null, 2) : ''
     );
     throw error;
   }
